@@ -32,24 +32,18 @@ class _TodoViewState extends State<TodoView> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            isChecked
-                ? SizedBox(
-                                width: 100,
-                                child: Text(
-                                  widget.todoData.work,
-                                  overflow: TextOverflow.ellipsis,
-                                  style:
-                        const TextStyle(decoration: TextDecoration.lineThrough)
-                                ),
-                              )
-                : SizedBox(
-                                width: MediaQuery.of(context).size.width / 1.5,
-                                child: Text(
-                                  widget.todoData.work,
-                                  overflow: TextOverflow.ellipsis,
-                                  
-                                ),
-                              ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 1.5,
+              child: isChecked
+                  ? Text(widget.todoData.work,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          decoration: TextDecoration.lineThrough))
+                  : Text(
+                      widget.todoData.work,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+            ),
             Checkbox(
                 value: isChecked,
                 onChanged: (value) {
